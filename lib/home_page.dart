@@ -5,7 +5,7 @@ import 'package:flutter_hello/pages/hello_page2.dart';
 import 'package:flutter_hello/pages/hello_page3.dart';
 import 'package:flutter_hello/utils/nav.dart';
 import 'package:flutter_hello/widgets/blue_button.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -16,9 +16,15 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text("Hello Flutter"),
           bottom: TabBar(tabs: [
-            Tab(text: "TAB 1",),
-            Tab(text: "TAB 2",),
-            Tab(text: "TAB 3",),
+            Tab(
+              text: "TAB 1",
+            ),
+            Tab(
+              text: "TAB 2",
+            ),
+            Tab(
+              text: "TAB 3",
+            ),
           ]),
         ),
         body: TabBarView(children: [
@@ -96,9 +102,9 @@ class HomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                BlueButton("Snack", onPressed: () => _onClickSnack(context)),
-                BlueButton("Dialog", onPressed: () => _onClickDialog(context)),
-                BlueButton("Toast", onPressed: _onClickToast)
+                BlueButton("Snack", onPressed: () => {}),
+                BlueButton("Dialog", onPressed: () => {}),
+                BlueButton("Toast", onPressed: () => {})
               ],
             )
           ],
@@ -113,20 +119,20 @@ class HomePage extends StatelessWidget {
     print(">> $s");
   }
 
-  _onClickSnack(context) {
-    Scaffold.of(context).showSnackBar(
-      SnackBar(
-        content: Text("Olá Flutter"),
-        action: SnackBarAction(
-          textColor: Colors.yellow,
-          label: "OK",
-          onPressed: () {
-            print("OK!");
-          },
-        ),
-      ),
-    );
-  }
+  // _onClickSnack(context) {
+  //   Scaffold.of(context).showSnackBar(
+  //     SnackBar(
+  //       content: Text("Olá Flutter"),
+  //       action: SnackBarAction(
+  //         textColor: Colors.yellow,
+  //         label: "OK",
+  //         onPressed: () {
+  //           print("OK!");
+  //         },
+  //       ),
+  //     ),
+  //   );
+  // }
 
   _onClickDialog(BuildContext context) {
     showDialog(
@@ -138,13 +144,13 @@ class HomePage extends StatelessWidget {
           child: AlertDialog(
             title: Text("Flutter é muito legal"),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text("Cancelar"),
                 onPressed: () {
                   Navigator.pop(context);
                 },
               ),
-              FlatButton(
+              TextButton(
                 child: Text("OK"),
                 onPressed: () {
                   Navigator.pop(context);
@@ -158,16 +164,16 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _onClickToast() {
-    Fluttertoast.showToast(
-        msg: "Flutter é muito legal",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIos: 5,
-        backgroundColor: Colors.green,
-        textColor: Colors.white,
-        fontSize: 16.0);
-  }
+  // _onClickToast() {
+  //   Fluttertoast.showToast(
+  //       msg: "Flutter é muito legal",
+  //       toastLength: Toast.LENGTH_LONG,
+  //       gravity: ToastGravity.CENTER,
+  //       timeInSecForIos: 5,
+  //       backgroundColor: Colors.green,
+  //       textColor: Colors.white,
+  //       fontSize: 16.0);
+  // }
 
   _img(String img) {
     return Image.asset(

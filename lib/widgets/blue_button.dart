@@ -1,18 +1,15 @@
-
 import 'package:flutter/material.dart';
 
 class BlueButton extends StatelessWidget {
-
   String text;
-  Function onPressed;
+  VoidCallback? onPressed;
   Color color;
 
   BlueButton(this.text, {@required this.onPressed, this.color = Colors.blue});
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-        color: color,
+    return ElevatedButton(
         child: Text(
           text,
           style: TextStyle(
@@ -20,7 +17,6 @@ class BlueButton extends StatelessWidget {
             fontSize: 20,
           ),
         ),
-        onPressed: onPressed
-    );
+        onPressed: onPressed);
   }
 }
